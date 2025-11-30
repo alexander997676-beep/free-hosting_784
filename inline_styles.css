@@ -1,0 +1,617 @@
+
+        /* --- Base & Global Styles (Redesigned Color Scheme) --- */
+        :root {
+            --primary: #00FFFF; /* Cyan */
+            --primary-light: #4DFFFF;
+            --primary-dark: #00B3B3;
+            --secondary: #FF00FF; /* Magenta */
+            --accent: #FFFF00; /* Yellow */
+            --dark: #0A0A1F;
+            --darker: #050510;
+            --light: #F0F8FF;
+            --card-bg: rgba(15, 15, 40, 0.9);
+            --card-border: rgba(0, 255, 255, 0.4);
+            --success: #00FFAA;
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at top, var(--dark), var(--darker)) fixed;
+            background-size: 100% 100%;
+            font-size: 0.95em;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        /* 🔥 Top Title - CYBER NEON */
+        .tools-top-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-align: center;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary), 0 0 25px var(--primary), 0 0 45px var(--primary);
+            margin-top: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .tools-top-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        /* --- Main Container (Enhanced Cyber Box) --- */
+        .main-container {
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.3),
+                inset 0 0 15px rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+        }
+        
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(8px);
+        }
+
+        /* --- Input/Form Section --- */
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: calc(100% - 24px);
+            padding: 14px 12px;
+            background: rgba(25, 25, 60, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            color: var(--light);
+            font-size: 1em;
+            border-radius: 8px;
+            box-shadow: 
+                inset 0 0 10px rgba(0, 255, 255, 0.1),
+                0 0 10px rgba(0, 255, 255, 0.1);
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 
+                inset 0 0 15px rgba(0, 255, 255, 0.2),
+                0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        /* Custom File Upload Box Styling */
+        .file-upload-box {
+            border: 2px dashed rgba(0, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(25, 25, 60, 0.5);
+            margin-top: 5px;
+        }
+        
+        .file-upload-box:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            background: rgba(35, 35, 80, 0.5);
+        }
+
+        .file-upload-icon {
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        .file-upload-text {
+            color: var(--light);
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 5px;
+        }
+        
+        .file-upload-subtext {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        /* File names display area */
+        #uploadedFilesList {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: var(--primary);
+            font-family: monospace;
+            text-align: center;
+            line-height: 1.4;
+            max-height: 100px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(25, 25, 60, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        /* Action Button (Create Website) */
+        .action-button {
+            width: 100%;
+            padding: 16px;
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .action-button:hover {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 25px var(--primary), 0 0 40px var(--primary);
+        }
+        
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        #message {
+            margin-top: -5px; 
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            min-height: 20px;
+            letter-spacing: 1px;
+            color: var(--accent);
+            padding: 8px;
+            border-radius: 5px;
+            background: rgba(255, 255, 0, 0.1);
+        }
+
+        /* --- Success Result Box (Cyber Enhanced) --- */
+        #downloadResult {
+            padding: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            background: rgba(15, 15, 40, 0.9);
+            display: none;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 0.95em;
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.3),
+                inset 0 0 15px rgba(0, 255, 255, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Success text */
+        #downloadResult h3 {
+            margin: 0 0 15px 0;
+            color: var(--success);
+            font-size: 1.2em;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.7);
+        }
+        
+        /* Domain text */
+        .result-domain-text {
+            color: var(--light);
+            word-break: break-all;
+            padding: 12px;
+            background: rgba(25, 25, 60, 0.7);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+            font-family: monospace;
+            font-size: 1.05em;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .download-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid var(--success);
+            color: var(--success);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            box-shadow: 0 0 12px var(--success);
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .download-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 170, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .download-link:hover {
+            background: var(--success);
+            color: var(--dark);
+            box-shadow: 0 0 25px var(--success);
+        }
+        
+        .download-link:hover::before {
+            left: 100%;
+        }
+
+        /* --- Code Editor Section --- */
+        .code-editor-section {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .code-editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .code-editor-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.1em;
+        }
+        
+        .code-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .code-tab {
+            padding: 5px 10px;
+            background: rgba(25, 25, 60, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+        }
+        
+        .code-tab.active {
+            background: rgba(0, 255, 255, 0.3);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .code-editor {
+            width: 100%;
+            height: 200px;
+            background: rgba(10, 10, 30, 0.9);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            border-radius: 8px;
+            color: var(--light);
+            font-family: monospace;
+            padding: 10px;
+            resize: vertical;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .editor-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .editor-btn {
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85em;
+        }
+        
+        .editor-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        /* --- Footer Section --- */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--primary);
+            text-shadow: 0 0 8px var(--primary);
+            padding: 20px;
+            width: 100%;
+            background: rgba(15, 15, 40, 0.7);
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-btn, .join-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 12px var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .whatsapp-btn::before, .join-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .whatsapp-btn:hover, .join-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 25px var(--primary);
+        }
+        
+        .whatsapp-btn:hover::before, .join-btn:hover::before {
+            left: 100%;
+        }
+
+        /* WhatsApp Icon Styling */
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            filter: drop-shadow(0 0 5px var(--primary));
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover svg, .join-btn:hover svg {
+            fill: var(--dark);
+            filter: none;
+        }
+        
+        /* Floating particles animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Toggle Button for Code Editor */
+        .toggle-code-btn {
+            width: 100%;
+            padding: 12px;
+            cursor: pointer;
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px var(--secondary);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .toggle-code-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .toggle-code-btn:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 0 20px var(--secondary);
+        }
+        
+        .toggle-code-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Glow effect for inputs on focus */
+        .glow-on-focus:focus {
+            box-shadow: 0 0 15px var(--primary), inset 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        
+        /* Status indicators */
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-online {
+            background-color: var(--success);
+            box-shadow: 0 0 8px var(--success);
+        }
+        
+        .status-offline {
+            background-color: var(--secondary);
+            box-shadow: 0 0 8px var(--secondary);
+        }
+        
+        /* Feature highlights */
+        .feature-highlight {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        .feature-highlight i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+    
