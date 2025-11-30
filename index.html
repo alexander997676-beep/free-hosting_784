@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE WEB HOSTING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Base & Global Styles (Redesigned Color Scheme) --- */
+        :root {
+            --primary: #00FFFF; /* Cyan */
+            --primary-light: #4DFFFF;
+            --primary-dark: #00B3B3;
+            --secondary: #FF00FF; /* Magenta */
+            --accent: #FFFF00; /* Yellow */
+            --dark: #0A0A1F;
+            --darker: #050510;
+            --light: #F0F8FF;
+            --card-bg: rgba(15, 15, 40, 0.9);
+            --card-border: rgba(0, 255, 255, 0.4);
+            --success: #00FFAA;
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at top, var(--dark), var(--darker)) fixed;
+            background-size: 100% 100%;
+            font-size: 0.95em;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        /* 🔥 Top Title - CYBER NEON */
+        .tools-top-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-align: center;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary), 0 0 25px var(--primary), 0 0 45px var(--primary);
+            margin-top: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .tools-top-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        /* --- Main Container (Enhanced Cyber Box) --- */
+        .main-container {
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.3),
+                inset 0 0 15px rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+        }
+        
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(8px);
+        }
+
+        /* --- Input/Form Section --- */
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: calc(100% - 24px);
+            padding: 14px 12px;
+            background: rgba(25, 25, 60, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            color: var(--light);
+            font-size: 1em;
+            border-radius: 8px;
+            box-shadow: 
+                inset 0 0 10px rgba(0, 255, 255, 0.1),
+                0 0 10px rgba(0, 255, 255, 0.1);
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 
+                inset 0 0 15px rgba(0, 255, 255, 0.2),
+                0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        /* Custom File Upload Box Styling */
+        .file-upload-box {
+            border: 2px dashed rgba(0, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(25, 25, 60, 0.5);
+            margin-top: 5px;
+        }
+        
+        .file-upload-box:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            background: rgba(35, 35, 80, 0.5);
+        }
+
+        .file-upload-icon {
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        .file-upload-text {
+            color: var(--light);
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 5px;
+        }
+        
+        .file-upload-subtext {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        /* File names display area */
+        #uploadedFilesList {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: var(--primary);
+            font-family: monospace;
+            text-align: center;
+            line-height: 1.4;
+            max-height: 100px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(25, 25, 60, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        /* Action Button (Create Website) */
+        .action-button {
+            width: 100%;
+            padding: 16px;
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .action-button:hover {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 25px var(--primary), 0 0 40px var(--primary);
+        }
+        
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        #message {
+            margin-top: -5px; 
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            min-height: 20px;
+            letter-spacing: 1px;
+            color: var(--accent);
+            padding: 8px;
+            border-radius: 5px;
+            background: rgba(255, 255, 0, 0.1);
+        }
+
+        /* --- Success Result Box (Cyber Enhanced) --- */
+        #downloadResult {
+            padding: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            background: rgba(15, 15, 40, 0.9);
+            display: none;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 0.95em;
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.3),
+                inset 0 0 15px rgba(0, 255, 255, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Success text */
+        #downloadResult h3 {
+            margin: 0 0 15px 0;
+            color: var(--success);
+            font-size: 1.2em;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.7);
+        }
+        
+        /* Domain text */
+        .result-domain-text {
+            color: var(--light);
+            word-break: break-all;
+            padding: 12px;
+            background: rgba(25, 25, 60, 0.7);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+            font-family: monospace;
+            font-size: 1.05em;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .download-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid var(--success);
+            color: var(--success);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            box-shadow: 0 0 12px var(--success);
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .download-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 170, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .download-link:hover {
+            background: var(--success);
+            color: var(--dark);
+            box-shadow: 0 0 25px var(--success);
+        }
+        
+        .download-link:hover::before {
+            left: 100%;
+        }
+
+        /* --- Code Editor Section --- */
+        .code-editor-section {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .code-editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .code-editor-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.1em;
+        }
+        
+        .code-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .code-tab {
+            padding: 5px 10px;
+            background: rgba(25, 25, 60, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+        }
+        
+        .code-tab.active {
+            background: rgba(0, 255, 255, 0.3);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .code-editor {
+            width: 100%;
+            height: 200px;
+            background: rgba(10, 10, 30, 0.9);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            border-radius: 8px;
+            color: var(--light);
+            font-family: monospace;
+            padding: 10px;
+            resize: vertical;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .editor-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .editor-btn {
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85em;
+        }
+        
+        .editor-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        /* --- Footer Section --- */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--primary);
+            text-shadow: 0 0 8px var(--primary);
+            padding: 20px;
+            width: 100%;
+            background: rgba(15, 15, 40, 0.7);
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-btn, .join-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 12px var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .whatsapp-btn::before, .join-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .whatsapp-btn:hover, .join-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 0 25px var(--primary);
+        }
+        
+        .whatsapp-btn:hover::before, .join-btn:hover::before {
+            left: 100%;
+        }
+
+        /* WhatsApp Icon Styling */
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            filter: drop-shadow(0 0 5px var(--primary));
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover svg, .join-btn:hover svg {
+            fill: var(--dark);
+            filter: none;
+        }
+        
+        /* Floating particles animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Toggle Button for Code Editor */
+        .toggle-code-btn {
+            width: 100%;
+            padding: 12px;
+            cursor: pointer;
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px var(--secondary);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .toggle-code-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .toggle-code-btn:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 0 20px var(--secondary);
+        }
+        
+        .toggle-code-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Glow effect for inputs on focus */
+        .glow-on-focus:focus {
+            box-shadow: 0 0 15px var(--primary), inset 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        
+        /* Status indicators */
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-online {
+            background-color: var(--success);
+            box-shadow: 0 0 8px var(--success);
+        }
+        
+        .status-offline {
+            background-color: var(--secondary);
+            box-shadow: 0 0 8px var(--secondary);
+        }
+        
+        /* Feature highlights */
+        .feature-highlight {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        .feature-highlight i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating particles for cyber effect -->
+    <div class="particles" id="particles"></div>
+
+    <h1 class="tools-top-title">FREE WEB HOSTING</h1>
+
+    <div class="main-container">
+        
+        <div id="formSection" class="form-section">
+            
+            <div class="input-group">
+                <label for="sitename"><i class="fas fa-globe" style="margin-right: 8px;"></i>Enter Your Website Name:</label>
+                <input type="text" id="sitename" placeholder="example: my-awesome-site" class="glow-on-focus">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-cloud-upload-alt" style="margin-right: 8px;"></i>Upload Your Files</label>
+                <div class="file-upload-box" onclick="document.getElementById('fileInput').click()">
+                    <span class="file-upload-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </span>
+                    <p class="file-upload-text">Click to upload or drag and drop</p>
+                    <p class="file-upload-subtext">HTML, CSS, and JavaScript files</p>
+                    
+                    <div id="uploadedFilesList"></div> 
+
+                    <input type="file" id="fileInput" accept=".html,.css,.js" multiple>
+                </div>
+            </div>
+            
+            <button class="toggle-code-btn" id="toggleCodeBtn">
+                <i class="fas fa-code" style="margin-right: 8px;"></i>Add Code Manually
+            </button>
+            
+            <!-- Code Editor Section -->
+            <div class="code-editor-section" id="codeEditorSection">
+                <div class="code-editor-header">
+                    <h3><i class="fas fa-file-code" style="margin-right: 8px;"></i>Code Editor</h3>
+                </div>
+                
+                <div class="code-tabs">
+                    <div class="code-tab active" data-tab="html">HTML</div>
+                    <div class="code-tab" data-tab="css">CSS</div>
+                    <div class="code-tab" data-tab="js">JavaScript</div>
+                </div>
+                
+                <textarea class="code-editor" id="htmlEditor" placeholder="Enter your HTML code here..."></textarea>
+                <textarea class="code-editor" id="cssEditor" placeholder="Enter your CSS code here..." style="display: none;"></textarea>
+                <textarea class="code-editor" id="jsEditor" placeholder="Enter your JavaScript code here..." style="display: none;"></textarea>
+                
+                <div class="editor-actions">
+                    <button class="editor-btn" id="saveCodeBtn">
+                        <i class="fas fa-save" style="margin-right: 5px;"></i>Save Code
+                    </button>
+                    <button class="editor-btn" id="clearCodeBtn">
+                        <i class="fas fa-trash" style="margin-right: 5px;"></i>Clear
+                    </button>
+                </div>
+            </div>
+            
+            <button class="action-button" id="createWebsiteBtn">
+                <i class="fas fa-rocket" style="margin-right: 10px;"></i>Create Website
+            </button>
+
+            <p id="message"></p>
+        </div>
+
+        <div id="downloadResult">
+            <h3><i class="fas fa-check-circle" style="margin-right: 10px;"></i>Your Website Created!</h3>
+            <p style="color:var(--primary); font-size:0.9em;">Your Website Domain</p>
+            <span class="result-domain-text" id="websiteLinkText"></span>
+            <a href="#" id="websiteLink" class="download-link" target="_blank">
+                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>View Your Website Now
+            </a>
+        </div>
+        
+        <!-- Features Section -->
+        <div style="margin-top: 20px; text-align: left; border-top: 1px solid rgba(0, 255, 255, 0.2); padding-top: 15px;">
+            <h3 style="color: var(--primary); text-align: center; margin-bottom: 15px;">Features</h3>
+            <div class="feature-highlight">
+                <i class="fas fa-bolt"></i>
+                <span>Instant website deployment</span>
+            </div>
+            <div class="feature-highlight">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure hosting environment</span>
+            </div>
+            <div class="feature-highlight">
+                <i class="fas fa-code"></i>
+                <span>Built-in code editor</span>
+            </div>
+            <div class="feature-highlight">
+                <i class="fas fa-cloud"></i>
+                <span>Cloud-based storage</span>
+            </div>
+            <div class="feature-highlight">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Mobile responsive design</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p><span class="status-indicator status-online"></span>System Status: Online</p>
+        <p>&copy;2025 — 𝙋𝙍𝙊𝙁𝙀𝙎𝙎𝙊𝙍-𝙋𝘼𝙍𝙄 | All Rights Reserved.</p>
+        <div class="social-buttons">
+            <a href="https://wa.me/+923237533251?text=*HEY-— 𝙋𝙍𝙊𝙁𝙀𝙎𝙎𝙊𝙍-𝙋𝘼𝙍𝙄 I'M FROM YOUR TOOLS WEBSITE*" class="whatsapp-btn" target="_blank">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align: middle;">
+                    <path d="M12.038 2.007C6.541 2.007 2.035 6.478 2.035 12.003c0 1.948.558 3.86 1.637 5.53l-1.074 3.931 4.013-1.042c1.616.88 3.407 1.349 5.237 1.349 5.497 0 9.998-4.471 9.998-10.005C22.038 6.478 17.532 2.007 12.038 2.007zm4.787 14.733c-.225.407-.757.513-1.15.267l-1.928-.971c-.347-.174-.755-.174-1.103 0l-1.928.971c-.393.246-.906.139-1.15-.267-.244-.407-.137-.92.269-1.164l1.928-.971c.347-.174.755-.174 1.103 0l1.928.971c.406.244.513.757.269 1.164zM12.038 5.5c3.585 0 6.5 2.915 6.5 6.5s-2.915 6.5-6.5 6.5-6.5-2.915-6.5-6.5 2.915-6.5 6.5-6.5z"/>
+                </svg>
+                Contact on WhatsApp
+            </a>
+            
+            <a href="https://whatsapp.com/channel/0029VbBGjOwHLHQS9vUIIl27" class="join-btn" target="_blank">
+                <i class="fab fa-whatsapp" style="font-size: 1.2em;"></i>
+                Join WhatsApp Channel
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating particles for cyber effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 1;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles
+        createParticles();
+        
+        const fileInput = document.getElementById('fileInput');
+        const uploadedFilesList = document.getElementById('uploadedFilesList');
+        const resultBox = document.getElementById('downloadResult');
+        const createButton = document.getElementById('createWebsiteBtn');
+        const linkElement = document.getElementById('websiteLink');
+        const linkTextElement = document.getElementById('websiteLinkText');
+        const messageElement = document.getElementById('message');
+        const toggleCodeBtn = document.getElementById('toggleCodeBtn');
+        const codeEditorSection = document.getElementById('codeEditorSection');
+        const codeTabs = document.querySelectorAll('.code-tab');
+        const htmlEditor = document.getElementById('htmlEditor');
+        const cssEditor = document.getElementById('cssEditor');
+        const jsEditor = document.getElementById('jsEditor');
+        const saveCodeBtn = document.getElementById('saveCodeBtn');
+        const clearCodeBtn = document.getElementById('clearCodeBtn');
+
+        // Event listener to show file names when selected
+        fileInput.addEventListener('change', () => {
+            const files = fileInput.files;
+            uploadedFilesList.innerHTML = '';
+            
+            if (files.length > 0) {
+                let listHtml = '<strong>Uploaded Files:</strong><br>';
+                for (let i = 0; i < files.length; i++) {
+                    listHtml += `<i class="fas fa-file" style="margin-right: 5px; color: var(--primary);"></i>${files[i].name}<br>`;
+                }
+                uploadedFilesList.innerHTML = listHtml;
+            }
+            // Clear message/result when files are changed
+            messageElement.textContent = '';
+            resultBox.style.display = 'none';
+        });
+
+        // Add drag and drop functionality
+        const fileUploadBox = document.querySelector('.file-upload-box');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileUploadBox.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileUploadBox.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileUploadBox.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            fileUploadBox.style.borderColor = 'var(--primary)';
+            fileUploadBox.style.boxShadow = '0 0 20px var(--primary)';
+        }
+        
+        function unhighlight() {
+            fileUploadBox.style.borderColor = 'rgba(0, 255, 255, 0.5)';
+            fileUploadBox.style.boxShadow = 'none';
+        }
+        
+        fileUploadBox.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            fileInput.files = files;
+            
+            // Trigger change event
+            const event = new Event('change');
+            fileInput.dispatchEvent(event);
+        }
+
+        // Toggle code editor visibility
+        toggleCodeBtn.addEventListener('click', () => {
+            if (codeEditorSection.style.display === 'block') {
+                codeEditorSection.style.display = 'none';
+                toggleCodeBtn.innerHTML = '<i class="fas fa-code" style="margin-right: 8px;"></i>Add Code Manually';
+            } else {
+                codeEditorSection.style.display = 'block';
+                toggleCodeBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 8px;"></i>Hide Code Editor';
+            }
+        });
+
+        // Code tab switching
+        codeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                codeTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all editors
+                htmlEditor.style.display = 'none';
+                cssEditor.style.display = 'none';
+                jsEditor.style.display = 'none';
+                
+                // Show the selected editor
+                const tabType = tab.getAttribute('data-tab');
+                document.getElementById(`${tabType}Editor`).style.display = 'block';
+            });
+        });
+
+        // Save code button
+        saveCodeBtn.addEventListener('click', () => {
+            const htmlCode = htmlEditor.value;
+            const cssCode = cssEditor.value;
+            const jsCode = jsEditor.value;
+            
+            if (htmlCode || cssCode || jsCode) {
+                messageElement.textContent = "Code saved successfully!";
+                messageElement.style.color = "var(--primary)";
+                
+                // Store code in localStorage
+                const siteName = document.getElementById('sitename').value.trim();
+                if (siteName) {
+                    if (htmlCode) localStorage.setItem(`site_${siteName}_index.html`, htmlCode);
+                    if (cssCode) localStorage.setItem(`site_${siteName}_style.css`, cssCode);
+                    if (jsCode) localStorage.setItem(`site_${siteName}_script.js`, jsCode);
+                }
+            } else {
+                messageElement.textContent = "No code to save!";
+                messageElement.style.color = "var(--accent)";
+            }
+            
+            setTimeout(() => {
+                messageElement.textContent = '';
+            }, 3000);
+        });
+
+        // Clear code button
+        clearCodeBtn.addEventListener('click', () => {
+            htmlEditor.value = '';
+            cssEditor.value = '';
+            jsEditor.value = '';
+            messageElement.textContent = "Code editor cleared!";
+            messageElement.style.color = "var(--accent)";
+            
+            setTimeout(() => {
+                messageElement.textContent = '';
+            }, 3000);
+        });
+
+        async function createWebsite() {
+            // Reset message and hide previous result
+            messageElement.textContent = '';
+            resultBox.style.display = 'none';
+
+            const name = document.getElementById('sitename').value.trim();
+            const files = fileInput.files;
+            
+            // Validation checks
+            if (!name) {
+                messageElement.textContent = "Please enter your website name!";
+                return;
+            }
+            if (files.length === 0 && !htmlEditor.value) {
+                messageElement.textContent = "Please choose at least one file to upload (.html, .css, or .js) or add code manually!";
+                return;
+            }
+            if (name.includes(' ') || !/^[a-zA-Z0-9_-]+$/.test(name)) {
+                messageElement.textContent = "Website name can only contain letters, numbers, hyphens (-) and underscores (_), and no spaces.";
+                return;
+            }
+
+            const hasHtmlFile = Array.from(files).some(file => file.name.endsWith('.html'));
+            if (!hasHtmlFile && !htmlEditor.value) {
+                messageElement.textContent = "Please include at least one HTML file (e.g., index.html) or add HTML code manually.";
+                return;
+            }
+
+            messageElement.textContent = "Processing and saving files... Please wait.";
+            createButton.disabled = true;
+
+            try {
+                // Process and save all uploaded files
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileContent = await file.text();
+                    localStorage.setItem(`site_${name}_${file.name}`, fileContent);
+                }
+                
+                // If manual code was added, save it too
+                if (htmlEditor.value) {
+                    localStorage.setItem(`site_${name}_index.html`, htmlEditor.value);
+                }
+                if (cssEditor.value) {
+                    localStorage.setItem(`site_${name}_style.css`, cssEditor.value);
+                }
+                if (jsEditor.value) {
+                    localStorage.setItem(`site_${name}_script.js`, jsEditor.value);
+                }
+                
+                const link = window.location.origin + "/view.html?site=" + encodeURIComponent(name);
+
+                // Update the success box
+                linkTextElement.textContent = link;
+                linkElement.href = link;
+                
+                // --- Display Success ---
+                // 1. Clear processing message
+                messageElement.textContent = ''; 
+                
+                // 2. Show the success box below the button (Correct placement)
+                resultBox.style.display = 'block';
+
+            } catch (error) {
+                console.error("Website creation error:", error);
+                messageElement.textContent = "An error occurred during file processing. Please try again.";
+            } finally {
+                createButton.disabled = false;
+            }
+        }
+        
+        // Attach the createWebsite function to the button
+        createButton.addEventListener('click', createWebsite);
+    </script>
+</body>
+</html>
